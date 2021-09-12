@@ -6,13 +6,14 @@ struct node{
     node* link;
 };
 
-node* insert(node* Head , int x){
+void insert(node** ptrToHead , int x){  // ptrToHead is pointer to pointer
 
     node* temp = new node;
     temp->data = x;
-    temp->link = Head;
-    Head = temp;
-    return Head;
+    temp->link = NULL;
+    if(ptrToHead != NULL)
+        temp->link = *ptrToHead;
+    *ptrToHead = temp;
 }
 
 void Print(node* Head){
@@ -34,7 +35,8 @@ int main(){
     for(i=0;i<n;i++){
         printf("Enter the number : ");
         scanf("%d",&x);
-        Head = insert(Head, x);
+        //printf("%p %p\n",&Head, Head);
+        insert(&Head, x);
         Print(Head);
     }
     return 0;
