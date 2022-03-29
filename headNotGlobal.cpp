@@ -6,7 +6,7 @@ struct node{
     node* link;
 };
 
-void insert(node** ptrToHead , int x){  // ptrT5oHead is pointer to pointer
+void insert(node** ptrToHead , int x){  // ptrToHead is pointer to pointer
 
     node* temp = new node;
     temp->data = x;
